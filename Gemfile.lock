@@ -9,4 +9,5 @@ PLATFORMS
 
 DEPENDENCIES
   av_capture
+  byebug
   phashion
