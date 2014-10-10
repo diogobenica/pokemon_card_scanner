@@ -2,9 +2,11 @@ GEM
   remote: https://rubygems.org/
   specs:
     av_capture (1.0.1)
+    phashion (1.1.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   av_capture
+  phashion
