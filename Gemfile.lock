@@ -10,4 +10,7 @@ PLATFORMS
 DEPENDENCIES
   av_capture
   byebug
+  imgkit
   phashion
+  rmagick
+  ropencv
