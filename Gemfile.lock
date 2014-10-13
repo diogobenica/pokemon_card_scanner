@@ -2,6 +2,12 @@ GEM
   remote: https://rubygems.org/
   specs:
     av_capture (1.0.1)
+    byebug (3.2.0)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+    columnize (0.8.9)
+    debugger-linecache (1.2.0)
+    imgkit (1.4.1)
     phashion (1.1.1)
 
 PLATFORMS
@@ -12,5 +18,4 @@ DEPENDENCIES
   byebug
   imgkit
   phashion
-  rmagick
   ropencv
