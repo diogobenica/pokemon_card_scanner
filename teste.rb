@@ -123,3 +123,51 @@ to = [
   OpenCV::CvPoint2D32f.new(width, height),
   OpenCV::CvPoint2D32f.new(0, height),
 ]
+
+byebug
+
+# transform = OpenCV::CvMat.get_perspective_transform(points, to)
+# new_img = img.warp_perspective transform
+
+
+# new_img.set_roi OpenCV::CvRect.new(0, 0, width, height)
+
+# window = GUI::Window.new('Display window') # Create a window for display.
+# window.show(new_img) # Show our image inside it.
+# GUI::wait_key # Wait for a keystroke in the window.
+
+new_image = Image.new(width, height) { self.background_color = "white" }
+
+img = Magick::Image::read("deitado.jpg").first
+
+byebug
+
+img = img.distort(Magick::PerspectiveDistortion, [
+                  44, 40,
+                  0, 0,
+                  262, 40,
+                  310, 0,
+                  0, 376,
+                  0, 376,
+                  310, 376,
+                  310, 376
+                  # clockwise_points[3].x, clockwise_points[3].y,
+                  # clockwise_points[2].x, clockwise_points[2].y,
+                  # clockwise_points[1].x, clockwise_points[1].y,
+                  # clockwise_points[0].x, clockwise_points[0].y
+                ])
+File.open("test2.png", "w") { |f| f << img.to_blob }
+
+exit
+
+img.fuzz = '10%'
+img = img.deskew(0.40)
+img = img.trim(true)
+
+File.open("test.png", "w") { |f| f << img.to_blob }
+
+img1 = Phashion::Image.new('test.png')
+img2 = Phashion::Image.new('charizard.jpg')
+
+puts img1.duplicate?(img2)
+puts img1.distance_from(img2)
